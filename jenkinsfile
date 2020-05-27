@@ -1,0 +1,18 @@
+def workspace 
+node
+{
+    stage('checkout')
+    {
+  checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '1b75ecd7-ab93-49ff-896a-bc88a874c758', url: 'https://github.com/atul343/home-.git']]])
+    workspace =pwd()
+    }
+    stage('static code analysis')
+    {
+        echo "static code analysis"
+    }
+    stage('build the code')
+    {
+        echo "build the code"
+    }
+    
+}
